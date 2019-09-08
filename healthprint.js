@@ -140,6 +140,15 @@ var future_state = { //example numbers for your predicted state in one year, bin
     "Low exercise": 0 
 }
 
+var goal_values = { //Values you need to reach to be outside the risk group
+    "Alcohol":      8,
+    "ObesityMin":   18.5, 
+    "ObesityMax":   24.9,
+    "Smoking":      0, 
+    "Low veggies":  6, 
+    "Low exercise": 0 
+}    
+
 
 var health_care_costs = {
     "Alcohol":      81.62376844,
