@@ -28,7 +28,7 @@ var disease_to_prevalance = {
 }
 
 
-function calculateYearsLostByDisease(disease_type, gender="Average") {
+function calculateYearsLostByDisease(disease_type, gender="Average+DALY") {
     var yearsLost = 0.;
     for (disease_i in disease_impact_years_lost_overall) {
         disease = disease_impact_years_lost_overall[disease_i]
@@ -45,11 +45,11 @@ function calculateYearsLostByDisease(disease_type, gender="Average") {
         }
     }
 
-    return yearsLost * life_expectancy["Average+DALY"];
+    return yearsLost * life_expectancy[gender];
 };
 
 
-function calculateYearsLostByBehaviour(behaviour, user_survey, gender="Average") {
+function calculateYearsLostByBehaviour(behaviour, user_survey, gender="Average+DALY") {
     var yearsLost = 0.;
     for (disease_i in disease_impact_years_lost_overall) {
         disease = disease_impact_years_lost_overall[disease_i]
@@ -67,7 +67,7 @@ function calculateYearsLostByBehaviour(behaviour, user_survey, gender="Average")
         }
     }
 
-    return yearsLost * life_expectancy["Average+DALY"]+;
+    return yearsLost * life_expectancy[gender]+;
 };
 
 function calculateYearsLost(user_survey)
@@ -85,7 +85,7 @@ function calculateYearsLost(user_survey)
 function calculateDirectHealthcareCostByBehaviour(behaviour) {
     return health_care_costs[behaviour]
 }
-function calculateDirectHealthcareCost(user_survey, gender="Average") {
+function calculateDirectHealthcareCost(user_survey, gender="Average+DALY") {
     var euorsLost = 0;
 
     euorsLost += calculateDirectHealthcareCostByBehaviour("Alcohol",      user_survey  ) * life_expectancy[gender] * user_survey["Alcohol"];
