@@ -101,7 +101,7 @@ function calculateDirectHealthcareCost(user_survey, gender="Average+DALY") {
 var total_national_productivity_loss    = 602261635.06;
 var total_national_direct_illness_cost  = 90787083.54;
 var total_national_cost_risk_behaviours = 285317591.66;
-var avg_national_productivity_loss = 34323.42;
+var avg_national_productivity_loss = 38612.71;
 var avg_national_direct_illness_cost = 5405.14;
 
 var gdp_per_capita = 17700.00;
