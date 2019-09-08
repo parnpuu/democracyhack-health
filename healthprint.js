@@ -198,6 +198,11 @@ console.log("Your relative difference",
     ((gdp_per_capita *  calculateYearsLost( user_survey ) / balancing_index) + calculateDirectHealthcareCost(user_survey)) /
             (avg_national_productivity_loss + avg_national_direct_illness_cost) - 1, "%");
 
+// Example calculation of progress numbers based on alcohol consumption
+console.log("Last year you were consuming ", previous_state["Alcohol"], " units of alcohol. This year your consumption rate has been ",
+    current_state["Alcohol"], "units of alcohol per week. Your progress towards a healthy lifestyle has been ", 
+        ((previous_state["Alcohol"] - current_state["Alcohol"]) / (previous_state["Alcohol"] - goal_values["Alcohol"])), "%!!!!");
+
 console.log("\n");
 console.log("National total productivity loss per year", total_national_productivity_loss   , "€");
 console.log("National total healthcare cost per year"  , total_national_direct_illness_cost , "€");
