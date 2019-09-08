@@ -101,6 +101,8 @@ function calculateDirectHealthcareCost(user_survey, gender="Average+DALY") {
 var total_national_productivity_loss    = 602261635.06;
 var total_national_direct_illness_cost  = 90787083.54;
 var total_national_cost_risk_behaviours = 285317591.66;
+var avg_national_productivity_loss = 34323.42;
+var avg_national_direct_illness_cost = 5405.14;
 
 var gdp_per_capita = 17700.00;
 var balancing_index = 3.1057; // inaccuracies in our method
@@ -121,7 +123,6 @@ var health_care_costs = {
     "Low exercise": 36.57933277,
 }
 
-console.log("Expected length of life", life_expectancy["Average"])
 console.log("\n");
 console.log("Tumors"                                            , calculateYearsLostByDisease(  "Tumors"                                                       ));
 console.log("Cardiovascular disease"                            , calculateYearsLostByDisease(  "Cardiovascular disease"                                       ));
@@ -150,6 +151,17 @@ console.log("Lost productivity over lifetime",
 
 console.log("Direct healthcare costs",
     calculateDirectHealthcareCost(user_survey), "€");
+
+console.log("Total loss over your lifetime",
+    (gdp_per_capita *  calculateYearsLost( user_survey ) / balancing_index) + calculateDirectHealthcareCost(user_survey), "€");
+
+console.log("Your difference compared to the national average",
+    ((gdp_per_capita *  calculateYearsLost( user_survey ) / balancing_index) + calculateDirectHealthcareCost(user_survey)) -
+            (avg_national_productivity_loss + avg_national_direct_illness_cost), "€");
+
+console.log("Your relative difference",
+    ((gdp_per_capita *  calculateYearsLost( user_survey ) / balancing_index) + calculateDirectHealthcareCost(user_survey)) /
+            (avg_national_productivity_loss + avg_national_direct_illness_cost) - 1, "%");
 
 console.log("\n");
 console.log("National total productivity loss per year", total_national_productivity_loss   , "€");
