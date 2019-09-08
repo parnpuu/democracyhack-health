@@ -3,6 +3,7 @@ var life_expectancy = {
     "Men": 75.,
     "Women": 81.7,
     "Average": 78.3,
+    "Average+DALY": 78.3+6.02
 };
 
 var disease_impact_years_lost_overall = [
@@ -44,7 +45,7 @@ function calculateYearsLostByDisease(disease_type, gender="Average") {
         }
     }
 
-    return yearsLost * life_expectancy[gender];
+    return yearsLost * life_expectancy["Average+DALY"];
 };
 
 
@@ -66,7 +67,7 @@ function calculateYearsLostByBehaviour(behaviour, user_survey, gender="Average")
         }
     }
 
-    return yearsLost * life_expectancy[gender];
+    return yearsLost * life_expectancy["Average+DALY"]+;
 };
 
 function calculateYearsLost(user_survey)
