@@ -158,6 +158,23 @@ var health_care_costs = {
     "Low exercise": 36.57933277,
 }
 
+var total_for_average = {
+    "Alcohol": 9533.41,
+    "Obesity": 7509.09,
+    "Smoking": 11236.70,
+    "Low veggies": 5064.00,
+    "Low exercise": 10674.66
+}
+
+var total_for_risk_group = {
+    "Alcohol": 43344.641,
+    "Obesity": 15022.12,
+    "Smoking": 48856.79,
+    "Low veggies": 7200.25,
+    "Low exercise": 20487.01   
+}
+
+
 console.log("\n");
 console.log("Tumors"                                            , calculateYearsLostByDisease(  "Tumors"                                                       ));
 console.log("Cardiovascular disease"                            , calculateYearsLostByDisease(  "Cardiovascular disease"                                       ));
