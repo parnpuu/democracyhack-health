@@ -107,13 +107,39 @@ var avg_national_direct_illness_cost = 5405.14;
 var gdp_per_capita = 17700.00;
 var balancing_index = 3.1057; // inaccuracies in our method
 
-var user_survey = {
-    "Alcohol":      1,
-    "Obesity":      1,
-    "Smoking":      1,
-    "Low veggies":  1,
-    "Low exercise": 1
+var user_survey = { // binary for if you're currently in risk group
+    "Alcohol":      if current_state["Alcohol"] > 8 then 1 else 0
+    "Obesity":      if current_state["Obesity"] > 25 then 1 else 0,
+    "Smoking":      current_state["Smoking"],
+    "Low veggies":  if current_state["Low veggies"] < 6 then 1 else 0,
+    "Low exercise": current_state["Low exercise"]
 }
+
+var previous_state = { //currently example numbers for last year's state
+    "Alcohol":      12, // units consumed in a week
+    "Obesity":      28, // BMI
+    "Smoking":      0, // binary for smoking, 0 if out of risk group
+    "Low veggies":  5, // days per week vegetables consumed
+    "Low exercise": 0 // binary for doing over 2 hours a week, 0 if out of risk group
+}
+
+var current_state = { //example numbers for this year's state, used for binary in user_survey
+    "Alcohol":      10, // units consumed in a week
+    "Obesity":      25, // BMI
+    "Smoking":      0, // binary for smoking, 0 if out of risk group
+    "Low veggies":  5, // days per week vegetables consumed
+    "Low exercise": 0 // binary for doing over 2 hours a week, 0 if out of risk group
+}
+
+
+var future_state = { //example numbers for your predicted state in one year, binary of whether in risk group or not
+    "Alcohol":      1,
+    "Obesity":      0, 
+    "Smoking":      0, 
+    "Low veggies":  0, 
+    "Low exercise": 0 
+}
+
 
 var health_care_costs = {
     "Alcohol":      81.62376844,
